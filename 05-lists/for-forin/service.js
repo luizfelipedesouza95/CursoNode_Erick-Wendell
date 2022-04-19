@@ -15,4 +15,5 @@ console.log('resultado', resultado)
     console.error("DEU RUIM", error)
 })
 
+
   // Continuar --- Manipulando listas com For/ForIn/ForOf tempo-5:40min     
