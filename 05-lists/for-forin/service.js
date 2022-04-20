@@ -16,4 +16,5 @@ console.log('resultado', resultado)
 })
 
 
+
   // Continuar --- Manipulando listas com For/ForIn/ForOf tempo-5:40min     
