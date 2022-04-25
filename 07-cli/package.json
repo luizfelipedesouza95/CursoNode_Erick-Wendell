@@ -2,7 +2,7 @@
   "name": "07-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "database.js",
   "scripts": {
     "test": "mocha"
   },
@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "mocha": "^9.2.2"
+  },
+  "dependencies": {
+    "commander": "^9.2.0"
   }
 }
