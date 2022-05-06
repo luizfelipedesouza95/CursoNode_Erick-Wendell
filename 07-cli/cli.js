@@ -12,9 +12,9 @@ const Database = require('./database');
     .option('-p, --poder [value]', 'adicionar poder')
     //CRUD
     .option('-c, --cadastrar', 'cadastrar Heroi')
-    .option('-r, --listar [value]', 'listar herois pelo id')
-    .option('-u, --atualizar [value]', 'atualizar heroi pelo id')
-    .option('-d, --remover [value]', 'remover heroi pelo id')
+    .option('-l, --listar [value]', 'listar todos herois')
+    .option('-a, --atualizar [value]', 'atualizar heroi pelo id')
+    .option('-r, --remover [value]', 'remover heroi pelo id')
     .parse(process.argv);
 
   const heroi = new Heroi(commander);
@@ -24,10 +24,9 @@ const Database = require('./database');
      * node cli.js -c -n Hulk -p Forca
      */
     if (commander.cadastrar) {
-      console.log(commander)
-      //await Database.cadastrar(heroi);
-      //console.log('item cadastrado com sucesso!');
-      //return;
+      await Database.cadastrar(heroi);
+      console.log('Heroi cadastrado com sucesso!');
+      return;
     }
 
     /**
@@ -37,7 +36,8 @@ const Database = require('./database');
      */
     if (commander.listar) {
       const id = commander.listar;
-      const result = await Database.listar(id);
+      const result = await Database.listar();
+      console.log('Lista de heroi carregada com sucesso!');
       console.log(result);
       return;
     }
@@ -51,7 +51,7 @@ const Database = require('./database');
       const id = commander.atualizar;
       console.log('id', id);
       await Database.atualizar(id, heroi);
-      console.log('item atualizado com sucesso!');
+      console.log('Heroi atualizado com sucesso!');
       return;
     }
     /**
@@ -61,7 +61,7 @@ const Database = require('./database');
     if (commander.remover) {
       const id = commander.remover;
       await Database.remover(id);
-      console.log('item removido com sucesso!');
+      console.log('Heroi removido com sucesso!');
       return;
     }
   } catch (error) {
